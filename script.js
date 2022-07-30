@@ -72,10 +72,9 @@ function getCalcStepResult() {
 }
 
 // Exercise #3
-const countriesCard = document.getElementById("countries-card");
-console.dir(countriesCard);
+const countryCard = document.getElementById("countries-card");
 
-const countriesObject = [
+const countriesListObject = [
   {
     name: {
       common: "Greenland",
@@ -22781,31 +22780,36 @@ const countriesObject = [
     capitalInfo: { latlng: [78.22, 15.63] },
   },
 ];
-console.log(countriesObject[0].nativeName);
+console.log(countriesListObject[0].nativeName);
 // function fnk() {
 //   renderCountriesCardInHTML(countriesObject[0].flags[0], countriesObject[0].name.official, gmLink, countryName, nativeName, capital, currency, population, osmLink)
 // return
 // }
-// function renderCountriesCardInHTML(flag, officialName, gmLink, countryName, capital, currency, population, osmLink) {
-countriesCard.innerHTML += `<div class="card text-center" style="width: 18rem">
-  <img src="${countriesObject[0].flags.png}" class="card-img-top" alt="flag" />
+function renderCountriesCardInHTML(country) {
+  htmlCountryCard = `<h3>Exercise #3</h3><br /><div class="d-flex flex-wrap gap-3 text-center justify-content-center">`;
+  for (let value of country)
+    htmlCountryCard += `<div class="card text-center" style="width: 18rem">
+    <img src="${value.flags.png}" class="card-img-top" alt="flag" />
   <div class="card-body">
-    <h5 class="card-title">${countriesObject[0].name.official}</h5>
+    <h5 class="card-title">${value.name.official}</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Common name: ${countriesObject[0].name.common}</li>
-    <li class="list-group-item">Capital: ${countriesObject[0].capital}</li>
-    <li class="list-group-item">Currency: ${countriesObject[0].currencies.DKK.name}</li>
-    <li class="list-group-item">Population: ${countriesObject[0].population}</li>
+    <li class="list-group-item">Common name: ${value.name.common}</li>
+    <li class="list-group-item">Capital: ${value.capital}</li>
+    <li class="list-group-item">Currency: ${value.DKK}</li>
+    <li class="list-group-item">Population: ${value.population}</li>
   </ul>
   <div class="card-body">
-    <a href="${countriesObject[0].maps.googleMaps}" target="_blank" class="card-link">
+    <a href="${value.maps.googleMaps}" target="_blank" class="card-link">
       Google Maps
     </a>
-    <a href="${countriesObject[0].maps.openStreetMaps}" target="_blank" class="card-link">
+    <a href="${value.maps.openStreetMaps}" target="_blank" class="card-link">
       Open Street Map
     </a>
-  </div>
+  </div>  
 </div>`;
-// }
-console.log(countriesObject[0].currencies.DKK.name);
+  htmlCountryCard += `</div>`;
+  return htmlCountryCard;
+}
+
+countryCard.innerHTML = renderCountriesCardInHTML(countriesListObject);

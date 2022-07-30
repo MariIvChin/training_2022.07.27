@@ -19,44 +19,45 @@
     <script defer src="./script.js"></script>
     <title>Training</title>
   </head>
-  <body style="background-color: rgb(226, 236, 226)">
-    <div style="display: flex; justify-content: space-around">
-      <div id="calc">
-        <h3>Exercise #1</h3>
-        <label for="num1">choose number</label><br />
-        <input type="number" id="num1" /><br />
-        <label for="operator">operator</label><br />
-        <select name="operator" id="operator">
-          <br />
-          <option value="+">+</option>
-          <option value="-">-</option>
-          <option value="*">*</option>
-          <option value="**">**</option>
-          <option value="/">/</option></select
-        ><br />
-        <label for="num2">choose number</label><br />
-        <input type="number" id="num2" /><br />
-        <label for="result">Result</label><br />
-        <input type="text" id="result" /><br /><br />
-        <button onclick="getCalcResult()">Click for get result!</button>
+  <body style="background-color: rgb(226, 236, 226); margin: 20px">
+    <div>
+      <div style="display: flex; justify-content: space-around">
+        <div id="calc">
+          <h3>Exercise #1</h3>
+          <label for="num1">choose number</label><br />
+          <input type="number" id="num1" /><br />
+          <label for="operator">operator</label><br />
+          <select name="operator" id="operator">
+            <br />
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="**">**</option>
+            <option value="/">/</option></select
+          ><br />
+          <label for="num2">choose number</label><br />
+          <input type="number" id="num2" /><br />
+          <label for="result">Result</label><br />
+          <input type="text" id="result" /><br /><br />
+          <button onclick="getCalcResult()">Click for get result!</button>
+        </div>
+        <div id="calc-steps">
+          <h3>Exercise #2</h3>
+          <label for="from">Number From</label><br />
+          <input type="text" id="from" /><br />
+          <label for="to">Number To</label><br />
+          <input type="text" id="to" /><br />
+          <label for="step">Step</label><br />
+          <input type="number" id="step" /><br />
+          <label for="result">Result</label><br />
+          <!-- <input type="text" id="step-result" /><br /><br /> -->
+          <div id="step-result" style="max-width: 300px"></div>
+          <br /><br />
+          <button onclick="getCalcStepResult()">Click for get result!</button>
+        </div>
       </div>
-      <div id="calc-steps">
-        <h3>Exercise #2</h3>
-        <label for="from">Number From</label><br />
-        <input type="text" id="from" /><br />
-        <label for="to">Number To</label><br />
-        <input type="text" id="to" /><br />
-        <label for="step">Step</label><br />
-        <input type="number" id="step" /><br />
-        <label for="result">Result</label><br />
-        <!-- <input type="text" id="step-result" /><br /><br /> -->
-        <div id="step-result" style="max-width: 300px"></div>
-        <br /><br />
-        <button onclick="getCalcStepResult()">Click for get result!</button>
-      </div>
-      <div id="countries-card">
-        <h3>Exercise #3</h3>
-      </div>
+      <br /><br />
+      <div id="countries-card" class="text-center"></div>
     </div>
     <br /><br /><br />
   </body>
