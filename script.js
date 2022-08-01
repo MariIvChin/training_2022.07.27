@@ -22780,3 +22780,42 @@ const countriesListObject = [
     capitalInfo: { latlng: [78.22, 15.63] },
   },
 ];
+
+function renderCountriesCardInHTML(country) {
+  htmlCountryCard = `<h3>Exercise #3</h3><br /><div class="d-flex flex-wrap gap-3 text-center justify-content-center">`;
+  for (let value of country) {
+    for (const currencyKey in value.currencies) {
+      console.log(currencyKey, value.currencies[currencyKey]);
+    }
+
+    // if (typeof value === "object") {
+    //   htmlCountryCard += `<li class="list-group-item">${value}: ${renderCountriesCardInHTML(country[value])}`;
+    // } else {
+    htmlCountryCard += `<div class="card text-center" style="width: 18rem">
+    <img src="${value.flags.png}" class="card-img-top" alt="flag" />
+  <div class="card-body">
+    <h5 class="card-title">${value.name.official}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Common name: ${value.name.common}</li>
+    <li class="list-group-item">Capital: ${value.capital}</li>
+    <li class="list-group-item">Currency: ${value.currencies}</li>
+    <li class="list-group-item">Population: ${value.population}</li>
+  </ul>
+  <div class="card-body">
+    <a href="${value.maps.googleMaps}" target="_blank" class="card-link">
+      Google Maps
+    </a>
+    <a href="${value.maps.openStreetMaps}" target="_blank" class="card-link">
+      Open Street Map
+    </a>
+  </div>  
+</div>`;
+  }
+
+  htmlCountryCard += `</div>`;
+  return htmlCountryCard;
+}
+// }
+
+countryCard.innerHTML = renderCountriesCardInHTML(countriesListObject);
