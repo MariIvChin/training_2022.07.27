@@ -22784,10 +22784,6 @@ const countriesListObject = [
 function renderCountriesCardInHTML(country) {
   htmlCountryCard = `<h3>Exercise #3</h3><br /><div class="d-flex flex-wrap gap-3 text-center justify-content-center">`;
   for (let value of country) {
-    for (const currencyKey in value.currencies) {
-      console.log(currencyKey, value.currencies[currencyKey]);
-    }
-
     // if (typeof value === "object") {
     //   htmlCountryCard += `<li class="list-group-item">${value}: ${renderCountriesCardInHTML(country[value])}`;
     // } else {
@@ -22798,9 +22794,14 @@ function renderCountriesCardInHTML(country) {
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Common name: ${value.name.common}</li>
-    <li class="list-group-item">Capital: ${value.capital}</li>
-    <li class="list-group-item">Currency: ${value.currencies}</li>
-    <li class="list-group-item">Population: ${value.population}</li>
+    <li class="list-group-item">Capital: ${value.capital}</li>`;
+    for (const currencyKey in value.currencies) {
+      console.log(currencyKey, value.currencies[currencyKey]);
+      console.log(value.currencies[currencyKey].name);
+
+      htmlCountryCard += `<li class="list-group-item">Currency: ${value.currencies[currencyKey].name}</li>`;
+    }
+    htmlCountryCard += `<li class="list-group-item">Population: ${value.population}</li>
   </ul>
   <div class="card-body">
     <a href="${value.maps.googleMaps}" target="_blank" class="card-link">
